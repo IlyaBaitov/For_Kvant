@@ -8,17 +8,37 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Блог</title>
 
-    <script
-            src="https://code.jquery.com/jquery-3.5.1.min.js"
-            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-            crossorigin="anonymous">
-    </script>
-
 </head>
 <body>
 
     <div class="container">
         <div class="row">
+
+        <!--               					Col for "SIGN UP" and "SIGN IN"									 -->
+        <?php if(@$_COOKIE["user"] == ""): ?>
+            <div class="col">
+                <h1>Регистрация</h1>
+                <form action="./reg_auth/sing_up.php" method="post">
+                    <input type="text" name="login" id="login" placeholder="Enter your login" class="form-control">
+                    <input type="password" name="pass" id="pass" placeholder="Enter your password" class="form-control">
+                    <input type="submit" name="submit" id="submit" value="Sign up" class="form-control">
+                </form>
+            </div>
+
+            <div class="col">
+                <h1>Авторизация</h1>
+                <form action="./reg_auth/sing_in.php" method="post">
+                    <input type="text" name="login" id="login" placeholder="Enter your login" class="form-control">
+                    <input type="password" name="pass" id="pass" placeholder="Enter your password" class="form-control">
+                    <input type="submit" name="submit" id="submit" value="Sign in" class="form-control">
+                </form>
+            </div>
+
+        <?php else: ?>
+
+            <!--    Статьи и добавление статей    -->
+
+            <h3> <?php echo $_COOKIE["user"]; ?> <a href="reg_auth/exit.php">Exit</a></h3><br>
             <div class="col">
 
                 <!--  Вывод статей и добаление записей в БД  -->
@@ -34,49 +54,8 @@
 
             </div>
 
-<!--            <div class="col">-->
-<!--                <!--  Регистрация  -->
-<!--                <h1>Регистрация</h1>-->
-<!--                <form action="./reg_auth/sing_up.php" method="post" class="form-control">-->
-<!--                    <input type="text">-->
-<!--                </form>-->
-<!--            </div>-->
-<!---->
-<!--            <div class="col">-->
-<!--                <!--  Авторизация  -->
-<!--                <h1>Авторизация</h1>-->
-<!--                <form action="./reg_auth/sing_in.php" method="post" class="form-control">-->
-<!---->
-<!--                </form>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!---->
-
-
-    <!--               					Col for "SIGN UP" and "SIGN IN"									 -->
-    <?php if(@$_COOKIE["user"] == ""): ?>
-        <div class="col">
-            <h1>Регистрация</h1>
-            <form action="./reg_auth/sing_up.php" method="post">
-                <input type="text" name="login" id="login" placeholder="Enter your login" class="form-control">
-                <input type="password" name="pass" id="pass" placeholder="Enter your password" class="form-control">
-                <input type="submit" name="submit" id="submit" value="Sign up" class="form-control">
-            </form>
+        <?php endif; ?>
         </div>
-
-        <div class="col">
-            <h1>Авторизация</h1>
-            <form action="./reg_auth/sing_in.php" method="post">
-                <input type="text" name="login" id="login" placeholder="Enter your login" class="form-control">
-                <input type="password" name="pass" id="pass" placeholder="Enter your password" class="form-control">
-                <input type="submit" name="submit" id="submit" value="Sign in" class="form-control">
-            </form>
-        </div>
-
-    <?php else: ?>
-        <h3> <?php echo $_COOKIE["user"]; ?> <a href="reg_auth/exit.php">Exit</a></h3>
-    <?php endif; ?>
-
+    </div>
 </body>
 </html>

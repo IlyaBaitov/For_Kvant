@@ -16,7 +16,7 @@
     <form action="#" method="post">
         <input type="text" name="title" id="title" placeholder="Заголовок"><br><br>
         <textarea type="text" name="description" id="description" placeholder="Текст \ Описание" cols="30" rows="10"></textarea><br><br>
-        <input type="text" name="author" id="author" placeholder="Автор"><br><br>
+<!--        <input type="text" name="author" id="author" placeholder="Автор"><br><br>-->
         <input type="text" name="type" id="type" placeholder="Тема"><br><br>
         <input type="submit" name="submit" id="submit" value="Добавить"><br><br><br><br><br>
     </form>
@@ -34,12 +34,12 @@
             // Variables
                 @$title = strip_tags(trim($_POST["title"]));
                 @$description = strip_tags(trim($_POST["description"]));
-                @$author = strip_tags(trim($_POST["author"]));
+//                @$author = strip_tags(trim($_POST["author"]));
                 @$type = strip_tags(trim($_POST["type"]));
 
             // Validation
             // Прямо тут выводим доступные темы и предупреждение если поля не заполнены
-                if($title == "" || $description == "" || $author == "" || $type == "")
+                if($title == "" || $description == "" || $type == "")
                 {
                     echo "<strong>Необходимо заполнить все поля!</strong><br><br>";
 
@@ -73,7 +73,7 @@
             $query->execute([
                 "title" => $title,
                 "description" => $description,
-                "author" => $author,
+                "author" => $_COOKIE["user"],
                 "type" => $type,
             ]);
     ?>

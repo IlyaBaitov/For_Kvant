@@ -1,5 +1,5 @@
 <?php
-// Variables from "index.php" => "USERS" => "sign_up"
+// Variables
     $login = strip_tags(trim($_POST["login"]));
     $password = strip_tags(trim($_POST["pass"]));
 
@@ -12,10 +12,10 @@
 
     $password = md5($password);
 
-// DB connection "USERS"
+// DB
     require("../config/db.php");
 
-// SQL request "USERS"
+// SQL
     $sql = "INSERT INTO `users` (`login`, `password`) VALUES (:login, :password)";
     $query = $pdo->prepare($sql);
     $query->execute([
@@ -23,6 +23,6 @@
         "password" => $password,
     ]);
 
-// Location on index.php
+// Location
     header("Location: ../index.php");
 ?>

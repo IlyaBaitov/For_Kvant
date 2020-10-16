@@ -1,5 +1,5 @@
 <?php
-// Variables from "index.php" => "USERS" => "sign_in"
+// Variables
     $login = strip_tags(trim($_POST["login"]));
     $password = strip_tags(trim($_POST["pass"]));
 
@@ -11,10 +11,10 @@
 
     $password = md5($password);
 
-// DB connecrion "USERS"
+// DB
     require("../config/db.php");
 
-// SQL request "USERS"
+// SQL
     $sql = "SELECT * FROM `users` WHERE `login` = '$login' AND `password` = '$password'";
     $query = $pdo->query($sql);
 
@@ -23,6 +23,6 @@
     $user = $users["login"];
     setcookie("user", $user, time() + 3600, "/");
 
-// Location on index.php
+// Location
     header("Location: ../index.php");
 ?>
