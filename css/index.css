@@ -1,3 +1,50 @@
-form {
-    max-width: 500px;
+body {
+    display: grid;
+    background-size: 100%;
+    background-image: url(https://img2.goodfon.ru/wallpaper/nbig/1/86/macos-sierra-apple-mac-os-x.jpg);
+    background-repeat: no-repeat;
+    grid-template-columns: 20vw 75vw;
+    grid-template-rows:4vw 32vw 6vw;
+    grid-template-areas:
+    "top top"
+    "left right"
+    "bottom bottom";
+    grid-column-gap: 50px;
+    grid-row-gap: 20px;
+}
+
+.top{
+    grid-area: top;
+    background-color:rgba(190, 181, 240, 0.418);
+    text-align: center;
+    font-size: 40px;
+    font-family: monospace;
+}
+
+.left{
+    grid-area: left;
+    background-color: rgba(190, 181, 240, 0.418);
+
+}
+
+.right{
+    grid-area: right;
+    background-color: rgba(190, 181, 240, 0.418);
+}
+
+.bottom{
+    grid-area: bottom;
+    background-color:rgba(190, 181, 240, 0.418);
+}
+
+button{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    margin: 6vw 8vw 6vw 8vw;
+    width: 70px;
+    text-align: center;
+    border-radius: 15%;
+    background-color: rgba(175, 248, 252, 1);
+    font-family: monospace;
 }
